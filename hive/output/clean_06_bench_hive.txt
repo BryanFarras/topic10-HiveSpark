@@ -1,0 +1,26 @@
+$ python3 hive/benchmark_hive.py
+Connected to jdbc:hive2://localhost:10000/hotspot_db (Apache Hive 4.2.1 on Tez)
+Executed 1 warm-up + 54 timed queries (6 tables x 3 queries x 3 trials)
+========================================================================================
+HASIL BENCHMARK APACHE HIVE 4.2.1 (TEZ) - MEDIAN DARI 3 PERCOBAAN (DETIK)
+========================================================================================
+Skala  | Format Tabel     | Query         | Run 1   | Run 2   | Run 3   | Median (s)
+----------------------------------------------------------------------------------------
+1x     | Teks (CSV)       | Q1_Agregasi   | 0.963   | 1.873   | 1.102   | 1.102     
+1x     | Teks (CSV)       | Q2_Join       | 1.349   | 1.413   | 1.477   | 1.413     
+1x     | Teks (CSV)       | Q3_Partisi    | 1.094   | 3.709   | 1.086   | 1.094     
+1x     | Parquet          | Q1_Agregasi   | 1.202   | 1.171   | 1.009   | 1.171     
+1x     | Parquet          | Q2_Join       | 1.430   | 1.326   | 1.325   | 1.326     
+1x     | Parquet          | Q3_Partisi    | 0.960   | 0.993   | 0.996   | 0.993     
+1x     | Parquet Partisi  | Q1_Agregasi   | 1.034   | 0.957   | 1.036   | 1.034     
+1x     | Parquet Partisi  | Q2_Join       | 1.288   | 1.512   | 1.567   | 1.512     
+1x     | Parquet Partisi  | Q3_Partisi    | 0.874   | 0.835   | 0.811   | 0.835     
+10x    | Teks (CSV)       | Q1_Agregasi   | 1.217   | 1.161   | 1.095   | 1.161     
+10x    | Teks (CSV)       | Q2_Join       | 1.641   | 1.659   | 1.717   | 1.659     
+10x    | Teks (CSV)       | Q3_Partisi    | 1.382   | 1.374   | 1.433   | 1.382     
+10x    | Parquet          | Q1_Agregasi   | 1.084   | 1.141   | 1.071   | 1.084     
+10x    | Parquet          | Q2_Join       | 1.447   | 1.442   | 1.389   | 1.442     
+10x    | Parquet          | Q3_Partisi    | 0.895   | 0.821   | 0.982   | 0.895     
+10x    | Parquet Partisi  | Q1_Agregasi   | 1.056   | 1.008   | 0.992   | 1.008     
+10x    | Parquet Partisi  | Q2_Join       | 1.540   | 1.489   | 1.415   | 1.489     
+10x    | Parquet Partisi  | Q3_Partisi    | 0.893   | 0.800   | 0.922   | 0.893

@@ -1,0 +1,45 @@
+$ docker exec -it hive4 beeline -u jdbc:hive2://localhost:10000/hotspot_db -f /tmp/02_verify_tables.sql
+Connecting to jdbc:hive2://localhost:10000/hotspot_db
+Connected to: Apache Hive (version 4.2.1)
+Driver: Hive JDBC (version 4.2.1)
+0: jdbc:hive2://localhost:10000/hotspot_db> SHOW TABLES;
++----------------------+
+|       tab_name       |
++----------------------+
+| hotspot_10x_parquet  |
+| hotspot_10x_part     |
+| hotspot_10x_text     |
+| hotspot_1x_parquet   |
+| hotspot_1x_part      |
+| hotspot_1x_text      |
+| ref_grid_provinsi    |
++----------------------+
+7 rows selected (0.142 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> SHOW PARTITIONS hotspot_1x_part;
++----------------------+
+|      partition       |
++----------------------+
+| acq_date=2026-09-19  |
+| acq_date=2026-09-20  |
+| acq_date=2026-09-21  |
+| acq_date=2026-09-22  |
+| acq_date=2026-09-23  |
+| acq_date=2026-09-24  |
+| acq_date=2026-09-25  |
++----------------------+
+7 rows selected (0.065 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> SELECT tabel, jumlah_baris FROM (SELECT '1x_text' tabel, COUNT(*) jumlah_baris FROM hotspot_1x_text
+. . . . . . . . . . . . . . . . > UNION ALL SELECT '1x_parquet', COUNT(*) FROM hotspot_1x_parquet
+. . . . . . . . . . . . . . . . > UNION ALL SELECT '1x_part', COUNT(*) FROM hotspot_1x_part
+. . . . . . . . . . . . . . . . > UNION ALL SELECT '10x_part', COUNT(*) FROM hotspot_10x_part) t;
++-------------+---------------+
+|    tabel    | jumlah_baris  |
++-------------+---------------+
+| 1x_part     | 54516         |
+| 10x_part    | 545160        |
+| 1x_text     | 54516         |
+| 1x_parquet  | 54516         |
++-------------+---------------+
+4 rows selected (3.258 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> !quit
+Closing: 0: jdbc:hive2://localhost:10000/hotspot_db

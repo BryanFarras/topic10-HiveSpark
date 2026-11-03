@@ -1,0 +1,58 @@
+$ docker exec -it hive4 beeline -u jdbc:hive2://localhost:10000/hotspot_db -f /tmp/03_queries_demo.sql
+Connecting to jdbc:hive2://localhost:10000/hotspot_db
+Connected to: Apache Hive (version 4.2.1)
+Driver: Hive JDBC (version 4.2.1)
+0: jdbc:hive2://localhost:10000/hotspot_db> SELECT confidence, daynight, COUNT(*) AS jumlah_hotspot, ROUND(SUM(frp),2) AS total_frp_mw,
+. . . . . . . . . . . . . . . . > ROUND(AVG(frp),2) AS rata_frp_mw, ROUND(MAX(frp),2) AS max_frp_mw
+. . . . . . . . . . . . . . . . > FROM hotspot_1x_part GROUP BY confidence, daynight ORDER BY total_frp_mw DESC;
++-------------+-----------+-----------------+---------------+--------------+-------------+
+| confidence  | daynight  | jumlah_hotspot  | total_frp_mw  | rata_frp_mw  | max_frp_mw  |
++-------------+-----------+-----------------+---------------+--------------+-------------+
+| nominal     | D         | 23216           | 270890.95     | 11.67        | 399.85      |
+| high        | N         | 956             | 171732.97     | 179.64       | 365.92      |
+| high        | D         | 1134            | 161717.75     | 142.61       | 365.31      |
+| nominal     | N         | 26879           | 83441.91      | 3.1          | 109.22      |
+| low         | D         | 1302            | 9305.36       | 7.15         | 366.04      |
+| low         | N         | 1029            | 3492.36       | 3.39         | 6.5         |
++-------------+-----------+-----------------+---------------+--------------+-------------+
+6 rows selected (1.565 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> SELECT p.provinsi, p.pulau, COUNT(h.hotspot_id) AS jumlah_hotspot, ROUND(SUM(h.frp),2) AS total_frp_mw,
+. . . . . . . . . . . . . . . . > ROUND(AVG(h.frp),2) AS rata_frp_mw FROM hotspot_1x_part h
+. . . . . . . . . . . . . . . . > JOIN ref_grid_provinsi p ON h.grid_id = p.grid_id WHERE h.confidence IN ('nominal','high')
+. . . . . . . . . . . . . . . . > GROUP BY p.provinsi, p.pulau ORDER BY jumlah_hotspot DESC LIMIT 10;
++----------------------------+----------------+-----------------+---------------+--------------+
+|         p.provinsi         |    p.pulau     | jumlah_hotspot  | total_frp_mw  | rata_frp_mw  |
++----------------------------+----------------+-----------------+---------------+--------------+
+| Kalimantan Tengah          | Kalimantan     | 26136           | 362561.43     | 13.87        |
+| Kalimantan Barat           | Kalimantan     | 4914            | 59739.95      | 12.16        |
+| Kalimantan Timur           | Kalimantan     | 3157            | 40387.39      | 12.79        |
+| Papua Selatan              | Papua          | 2998            | 39406.78      | 13.14        |
+| Kalimantan Selatan         | Kalimantan     | 2376            | 32352.47      | 13.62        |
+| Sumatera Selatan           | Sumatera       | 1672            | 19703.26      | 11.78        |
+| Maluku                     | Maluku         | 1500            | 16679.25      | 11.12        |
+| Nusa Tenggara Timur        | Nusa Tenggara  | 1446            | 17278.9       | 11.95        |
+| Papua Barat                | Papua          | 1145            | 12056.97      | 10.53        |
+| Kepulauan Bangka Belitung  | Sumatera       | 1135            | 15208.42      | 13.4         |
++----------------------------+----------------+-----------------+---------------+--------------+
+10 rows selected (2.652 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> SELECT grid_id, confidence, COUNT(*) AS jumlah_hotspot, ROUND(SUM(frp),2) AS total_frp_mw,
+. . . . . . . . . . . . . . . . > ROUND(MAX(frp),2) AS max_frp_mw FROM hotspot_1x_part
+. . . . . . . . . . . . . . . . > WHERE acq_date = '2026-09-19' AND frp >= 10.0 GROUP BY grid_id, confidence
+. . . . . . . . . . . . . . . . > ORDER BY total_frp_mw DESC LIMIT 10;
++----------+-------------+-----------------+---------------+-------------+
+| grid_id  | confidence  | jumlah_hotspot  | total_frp_mw  | max_frp_mw  |
++----------+-------------+-----------------+---------------+-------------+
+| g087112  | high        | 48              | 6585.45       | 346.96      |
+| g087113  | high        | 36              | 5680.29       | 355.96      |
+| g086111  | nominal     | 185             | 5347.53       | 173.17      |
+| g086113  | nominal     | 149             | 4851.59       | 399.85      |
+| g087112  | nominal     | 207             | 4720.58       | 150.98      |
+| g087114  | high        | 32              | 3993.57       | 319.3       |
+| g086113  | high        | 38              | 3225.25       | 323.73      |
+| g087114  | nominal     | 124             | 2527.41       | 74.83       |
+| g088114  | high        | 11              | 2481.84       | 301.21      |
+| g087111  | nominal     | 62              | 2402.24       | 252.42      |
++----------+-------------+-----------------+---------------+-------------+
+10 rows selected (3.789 seconds)
+0: jdbc:hive2://localhost:10000/hotspot_db> !quit
+Closing: 0: jdbc:hive2://localhost:10000/hotspot_db

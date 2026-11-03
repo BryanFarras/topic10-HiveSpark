@@ -1,0 +1,218 @@
+{
+  "1x|Teks (CSV)|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.963,
+      1.873,
+      1.102
+    ],
+    "median": 1.102
+  },
+  "1x|Teks (CSV)|Q2_Join": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q2_Join",
+    "runs": [
+      1.349,
+      1.413,
+      1.477
+    ],
+    "median": 1.413
+  },
+  "1x|Teks (CSV)|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q3_Partisi",
+    "runs": [
+      1.094,
+      3.709,
+      1.086
+    ],
+    "median": 1.094
+  },
+  "1x|Parquet|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q1_Agregasi",
+    "runs": [
+      1.202,
+      1.171,
+      1.009
+    ],
+    "median": 1.171
+  },
+  "1x|Parquet|Q2_Join": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q2_Join",
+    "runs": [
+      1.43,
+      1.326,
+      1.325
+    ],
+    "median": 1.326
+  },
+  "1x|Parquet|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.96,
+      0.993,
+      0.996
+    ],
+    "median": 0.993
+  },
+  "1x|Parquet Partisi|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q1_Agregasi",
+    "runs": [
+      1.034,
+      0.957,
+      1.036
+    ],
+    "median": 1.034
+  },
+  "1x|Parquet Partisi|Q2_Join": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q2_Join",
+    "runs": [
+      1.288,
+      1.512,
+      1.567
+    ],
+    "median": 1.512
+  },
+  "1x|Parquet Partisi|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.874,
+      0.835,
+      0.811
+    ],
+    "median": 0.835
+  },
+  "10x|Teks (CSV)|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q1_Agregasi",
+    "runs": [
+      1.217,
+      1.161,
+      1.095
+    ],
+    "median": 1.161
+  },
+  "10x|Teks (CSV)|Q2_Join": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q2_Join",
+    "runs": [
+      1.641,
+      1.659,
+      1.717
+    ],
+    "median": 1.659
+  },
+  "10x|Teks (CSV)|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q3_Partisi",
+    "runs": [
+      1.382,
+      1.374,
+      1.433
+    ],
+    "median": 1.382
+  },
+  "10x|Parquet|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q1_Agregasi",
+    "runs": [
+      1.084,
+      1.141,
+      1.071
+    ],
+    "median": 1.084
+  },
+  "10x|Parquet|Q2_Join": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q2_Join",
+    "runs": [
+      1.447,
+      1.442,
+      1.389
+    ],
+    "median": 1.442
+  },
+  "10x|Parquet|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.895,
+      0.821,
+      0.982
+    ],
+    "median": 0.895
+  },
+  "10x|Parquet Partisi|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q1_Agregasi",
+    "runs": [
+      1.056,
+      1.008,
+      0.992
+    ],
+    "median": 1.008
+  },
+  "10x|Parquet Partisi|Q2_Join": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q2_Join",
+    "runs": [
+      1.54,
+      1.489,
+      1.415
+    ],
+    "median": 1.489
+  },
+  "10x|Parquet Partisi|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.893,
+      0.8,
+      0.922
+    ],
+    "median": 0.893
+  }
+}

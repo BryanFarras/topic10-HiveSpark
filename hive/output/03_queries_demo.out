@@ -1,0 +1,537 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.24.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.24.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Connecting to jdbc:hive2://localhost:10000
+Connected to: Apache Hive (version 4.2.1)
+Driver: Hive JDBC (version 4.2.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20261102110102_f68c7880-f4a4-40bd-8070-84cf4c416dad): USE hotspot_db
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20261102110102_f68c7880-f4a4-40bd-8070-84cf4c416dad); Time taken: 0.008 seconds
+INFO  : Executing command(queryId=hive_20261102110102_f68c7880-f4a4-40bd-8070-84cf4c416dad): USE hotspot_db
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20261102110102_f68c7880-f4a4-40bd-8070-84cf4c416dad); Time taken: 0.005 seconds
+No rows affected (0.058 seconds)
+INFO  : Compiling command(queryId=hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d): SELECT confidence,        daynight,        COUNT(*) AS jumlah_hotspot,        ROUND(SUM(frp), 2) AS total_frp_mw,        ROUND(AVG(frp), 2) AS rata_frp_mw,        ROUND(MAX(frp), 2) AS max_frp_mw FROM hotspot_1x_part GROUP BY confidence, daynight ORDER BY total_frp_mw DESC
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:confidence, type:string, comment:null), FieldSchema(name:daynight, type:string, comment:null), FieldSchema(name:jumlah_hotspot, type:bigint, comment:null), FieldSchema(name:total_frp_mw, type:double, comment:null), FieldSchema(name:rata_frp_mw, type:double, comment:null), FieldSchema(name:max_frp_mw, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d); Time taken: 0.264 seconds
+INFO  : Executing command(queryId=hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d): SELECT confidence,        daynight,        COUNT(*) AS jumlah_hotspot,        ROUND(SUM(frp), 2) AS total_frp_mw,        ROUND(AVG(frp), 2) AS rata_frp_mw,        ROUND(MAX(frp), 2) AS max_frp_mw FROM hotspot_1x_part GROUP BY confidence, daynight ORDER BY total_frp_mw DESC
+INFO  : Query ID = hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Subscribed to counters: [] for queryId: hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d
+INFO  : Tez session hasn't been created yet. Opening session
+INFO  : Dag name: SELECT confidence,   ......total_frp_mw DESC (Stage-1)
+INFO  : HS2 Host: [18222dca8956], Query ID: [hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d], Dag ID: [dag_1793617262427_0001_1], DAG App ID: [application_1793617262427_0001], DAG App address: [18222dca8956]
+INFO  : Status: Running (Executing on YARN cluster with App id application_1793617262427_0001)
+
+[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 3 ...... container     SUCCEEDED      1          1        0        0       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 03/03  [==========================>>] 100%  ELAPSED TIME: 1.05 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+INFO  : Status: DAG finished successfully in 1.02 seconds
+INFO  : DAG ID: dag_1793617262427_0001_1
+INFO  : 
+INFO  : Query Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : OPERATION                            DURATION
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : Compile Query                           0.26s
+INFO  : Prepare Plan                            0.17s
+INFO  : Get Query Coordinator (AM)              0.00s
+INFO  : Submit Plan                             0.01s
+INFO  : Start DAG                               0.02s
+INFO  : Run DAG                                 1.02s
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : Task Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      DURATION(ms)   CPU_TIME(ms)    GC_TIME(ms)   INPUT_RECORDS   OUTPUT_RECORDS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1            508.00              0              0          54,516                6
+INFO  :  Reducer 2              0.00              0              0               6                6
+INFO  :  Reducer 3              0.00              0              0               6                0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : FileSystem Counters Summary
+INFO  : 
+INFO  : Scheme: FILE
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      BYTES_READ      READ_OPS     LARGE_READ_OPS      BYTES_WRITTEN     WRITE_OPS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1              0B             0                  0                 0B             0
+INFO  :  Reducer 2              0B             0                  0                 0B             0
+INFO  :  Reducer 3              0B             0                  0                 0B             0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : org.apache.tez.common.counters.DAGCounter:
+INFO  :    NUM_SUCCEEDED_TASKS: 3
+INFO  :    TOTAL_LAUNCHED_TASKS: 3
+INFO  :    DURATION_SUCCEEDED_TASKS_MILLIS: 285
+INFO  :    OTHER_LOCAL_TASKS: 1
+INFO  :    AM_CPU_MILLISECONDS: 2010
+INFO  :    WALL_CLOCK_MILLIS: 285
+INFO  :    AM_GC_TIME_MILLIS: 34
+INFO  :    INITIAL_HELD_CONTAINERS: 0
+INFO  :    TOTAL_CONTAINERS_USED: 3
+INFO  :    TOTAL_CONTAINER_LAUNCH_COUNT: 3
+INFO  :    TOTAL_CONTAINER_RELEASE_COUNT: 3
+INFO  :    NODE_USED_COUNT: 1
+INFO  :    NODE_TOTAL_COUNT: 1
+INFO  : org.apache.tez.common.counters.TaskCounter:
+INFO  :    REDUCE_INPUT_GROUPS: 12
+INFO  :    REDUCE_INPUT_RECORDS: 12
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    SPILLED_RECORDS: 24
+INFO  :    NUM_SHUFFLED_INPUTS: 2
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    MERGED_MAP_OUTPUTS: 2
+INFO  :    INPUT_RECORDS_PROCESSED: 57
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 1736550
+INFO  :    OUTPUT_RECORDS: 12
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_BYTES: 428
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 464
+INFO  :    OUTPUT_BYTES_PHYSICAL: 472
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 472
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    SHUFFLE_CHUNK_COUNT: 2
+INFO  :    SHUFFLE_BYTES: 472
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 464
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 472
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    SHUFFLE_PHASE_TIME: 10
+INFO  :    MERGE_PHASE_TIME: 10
+INFO  :    FIRST_EVENT_RECEIVED: 4
+INFO  :    LAST_EVENT_RECEIVED: 4
+INFO  : HIVE:
+INFO  :    CREATED_FILES: 1
+INFO  :    DESERIALIZE_ERRORS: 0
+INFO  :    RECORDS_IN_Map_1: 54516
+INFO  :    RECORDS_OUT_0: 6
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_1: 6
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_2: 6
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_3: 0
+INFO  :    RECORDS_OUT_OPERATOR_FS_16: 6
+INFO  :    RECORDS_OUT_OPERATOR_GBY_10: 6
+INFO  :    RECORDS_OUT_OPERATOR_GBY_12: 6
+INFO  :    RECORDS_OUT_OPERATOR_MAP_0: 0
+INFO  :    RECORDS_OUT_OPERATOR_RS_11: 6
+INFO  :    RECORDS_OUT_OPERATOR_RS_14: 6
+INFO  :    RECORDS_OUT_OPERATOR_SEL_13: 6
+INFO  :    RECORDS_OUT_OPERATOR_SEL_15: 6
+INFO  :    RECORDS_OUT_OPERATOR_SEL_9: 54516
+INFO  :    RECORDS_OUT_OPERATOR_TS_0: 54516
+INFO  : Shuffle Errors:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : org.apache.hadoop.hive.ql.exec.tez.HiveInputCounters:
+INFO  :    GROUPED_INPUT_SPLITS_Map_1: 1
+INFO  :    INPUT_DIRECTORIES_Map_1: 7
+INFO  :    INPUT_FILES_Map_1: 7
+INFO  :    RAW_INPUT_SPLITS_Map_1: 7
+INFO  : Completed executing command(queryId=hive_20261102110102_a1690138-61d3-46c7-a6c6-ac2cfc33a51d); Time taken: 1.234 seconds
++-------------+-----------+-----------------+---------------+--------------+-------------+
+| confidence  | daynight  | jumlah_hotspot  | total_frp_mw  | rata_frp_mw  | max_frp_mw  |
++-------------+-----------+-----------------+---------------+--------------+-------------+
+| nominal     | D         | 23216           | 270890.95     | 11.67        | 399.85      |
+| high        | N         | 956             | 171732.97     | 179.64       | 365.92      |
+| high        | D         | 1134            | 161717.75     | 142.61       | 365.31      |
+| nominal     | N         | 26879           | 83441.91      | 3.1          | 109.22      |
+| low         | D         | 1302            | 9305.36       | 7.15         | 366.04      |
+| low         | N         | 1029            | 3492.36       | 3.39         | 6.5         |
++-------------+-----------+-----------------+---------------+--------------+-------------+
+6 rows selected (1.565 seconds)
+INFO  : Compiling command(queryId=hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698): SELECT p.provinsi,        p.pulau,        COUNT(h.hotspot_id) AS jumlah_hotspot,        ROUND(SUM(h.frp), 2) AS total_frp_mw,        ROUND(AVG(h.frp), 2) AS rata_frp_mw FROM hotspot_1x_part h JOIN ref_grid_provinsi p ON h.grid_id = p.grid_id WHERE h.confidence IN ('nominal', 'high') GROUP BY p.provinsi, p.pulau ORDER BY jumlah_hotspot DESC LIMIT 10
+INFO  : No Stats for hotspot_db@ref_grid_provinsi, Columns: provinsi, grid_id, pulau
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:p.provinsi, type:string, comment:null), FieldSchema(name:p.pulau, type:string, comment:null), FieldSchema(name:jumlah_hotspot, type:bigint, comment:null), FieldSchema(name:total_frp_mw, type:double, comment:null), FieldSchema(name:rata_frp_mw, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698); Time taken: 0.469 seconds
+INFO  : Executing command(queryId=hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698): SELECT p.provinsi,        p.pulau,        COUNT(h.hotspot_id) AS jumlah_hotspot,        ROUND(SUM(h.frp), 2) AS total_frp_mw,        ROUND(AVG(h.frp), 2) AS rata_frp_mw FROM hotspot_1x_part h JOIN ref_grid_provinsi p ON h.grid_id = p.grid_id WHERE h.confidence IN ('nominal', 'high') GROUP BY p.provinsi, p.pulau ORDER BY jumlah_hotspot DESC LIMIT 10
+INFO  : Query ID = hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Subscribed to counters: [] for queryId: hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698
+INFO  : Session is already open
+INFO  : Dag name: SELECT p.provinsi,   ......pot DESC LIMIT 10 (Stage-1)
+INFO  : Setting tez.task.scale.memory.reserve-fraction to 0.30000001192092896
+INFO  : HS2 Host: [18222dca8956], Query ID: [hive_20261102110103_73b72fcd-f0fd-4e42-8db3-6148447e4698], Dag ID: [dag_1793617262427_0001_2], DAG App ID: [application_1793617262427_0001], DAG App address: [18222dca8956]
+INFO  : Status: Running (Executing on YARN cluster with App id application_1793617262427_0001)
+
+[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 4 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Map 1            container       RUNNING      1          0        1        0       0       0  
+Reducer 2        container        INITED      1          0        0        1       0       0  
+Reducer 3        container        INITED      1          0        0        1       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 01/04  [======>>--------------------] 25%   ELAPSED TIME: 1.40 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+[10A[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 4 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2        container        INITED      1          0        0        1       0       0  
+Reducer 3        container        INITED      1          0        0        1       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 02/04  [=============>>-------------] 50%   ELAPSED TIME: 1.90 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+[10A[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 4 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 3 ...... container     SUCCEEDED      1          1        0        0       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 04/04  [==========================>>] 100%  ELAPSED TIME: 2.05 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+INFO  : Status: DAG finished successfully in 2.02 seconds
+INFO  : DAG ID: dag_1793617262427_0001_2
+INFO  : 
+INFO  : Query Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : OPERATION                            DURATION
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : Compile Query                           0.47s
+INFO  : Prepare Plan                            0.08s
+INFO  : Get Query Coordinator (AM)              0.00s
+INFO  : Submit Plan                             0.01s
+INFO  : Start DAG                               0.03s
+INFO  : Run DAG                                 2.02s
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : Task Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      DURATION(ms)   CPU_TIME(ms)    GC_TIME(ms)   INPUT_RECORDS   OUTPUT_RECORDS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1            506.00              0              0          54,816               29
+INFO  :      Map 4              0.00              0              0             300              300
+INFO  :  Reducer 2              0.00              0              0              29               20
+INFO  :  Reducer 3              0.00              0              0              20                0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : FileSystem Counters Summary
+INFO  : 
+INFO  : Scheme: FILE
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      BYTES_READ      READ_OPS     LARGE_READ_OPS      BYTES_WRITTEN     WRITE_OPS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1              0B             0                  0                 0B             0
+INFO  :      Map 4              0B             0                  0                 0B             0
+INFO  :  Reducer 2              0B             0                  0                 0B             0
+INFO  :  Reducer 3              0B             0                  0                 0B             0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : org.apache.tez.common.counters.DAGCounter:
+INFO  :    NUM_SUCCEEDED_TASKS: 4
+INFO  :    TOTAL_LAUNCHED_TASKS: 4
+INFO  :    DURATION_SUCCEEDED_TASKS_MILLIS: 622
+INFO  :    OTHER_LOCAL_TASKS: 2
+INFO  :    AM_CPU_MILLISECONDS: 4620
+INFO  :    WALL_CLOCK_MILLIS: 622
+INFO  :    AM_GC_TIME_MILLIS: 35
+INFO  :    INITIAL_HELD_CONTAINERS: 0
+INFO  :    TOTAL_CONTAINERS_USED: 4
+INFO  :    TOTAL_CONTAINER_LAUNCH_COUNT: 4
+INFO  :    TOTAL_CONTAINER_RELEASE_COUNT: 4
+INFO  :    NODE_USED_COUNT: 1
+INFO  :    NODE_TOTAL_COUNT: 1
+INFO  : org.apache.tez.common.counters.TaskCounter:
+INFO  :    REDUCE_INPUT_GROUPS: 49
+INFO  :    REDUCE_INPUT_RECORDS: 49
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    SPILLED_RECORDS: 98
+INFO  :    NUM_SHUFFLED_INPUTS: 3
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    MERGED_MAP_OUTPUTS: 2
+INFO  :    INPUT_RECORDS_PROCESSED: 657
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 1750956
+INFO  :    OUTPUT_RECORDS: 349
+INFO  :    APPROXIMATE_INPUT_RECORDS: 300
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_BYTES: 12228
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 12944
+INFO  :    OUTPUT_BYTES_PHYSICAL: 12980
++----------------------------+----------------+-----------------+---------------+--------------+
+|         p.provinsi         |    p.pulau     | jumlah_hotspot  | total_frp_mw  | rata_frp_mw  |
++----------------------------+----------------+-----------------+---------------+--------------+
+| Kalimantan Tengah          | Kalimantan     | 26136           | 362561.43     | 13.87        |
+| Kalimantan Barat           | Kalimantan     | 4914            | 59739.95      | 12.16        |
+| Kalimantan Timur           | Kalimantan     | 3157            | 40387.39      | 12.79        |
+| Papua Selatan              | Papua          | 2998            | 39406.78      | 13.14        |
+| Kalimantan Selatan         | Kalimantan     | 2376            | 32352.47      | 13.62        |
+| Sumatera Selatan           | Sumatera       | 1672            | 19703.26      | 11.78        |
+| Maluku                     | Maluku         | 1500            | 16679.25      | 11.12        |
+| Nusa Tenggara Timur        | Nusa Tenggara  | 1446            | 17278.9       | 11.95        |
+| Papua Barat                | Papua          | 1145            | 12056.97      | 10.53        |
+| Kepulauan Bangka Belitung  | Sumatera       | 1135            | 15208.42      | 13.4         |
++----------------------------+----------------+-----------------+---------------+--------------+
+10 rows selected (2.652 seconds)
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 10710
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 2246
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    SHUFFLE_CHUNK_COUNT: 2
+INFO  :    SHUFFLE_BYTES: 12956
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 12944
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 12956
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    SHUFFLE_PHASE_TIME: 13
+INFO  :    MERGE_PHASE_TIME: 10
+INFO  :    FIRST_EVENT_RECEIVED: 7
+INFO  :    LAST_EVENT_RECEIVED: 7
+INFO  :    DATA_BYTES_VIA_EVENT: 0
+INFO  : HIVE:
+INFO  :    CREATED_FILES: 1
+INFO  :    DESERIALIZE_ERRORS: 0
+INFO  :    HASHTABLE_LOAD_TIME_MS_Map_1: 7
+INFO  :    RECORDS_IN_Map_1: 54516
+INFO  :    RECORDS_IN_Map_4: 300
+INFO  :    RECORDS_OUT_0: 10
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_1: 29
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_4: 300
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_2: 20
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_3: 0
+INFO  :    RECORDS_OUT_OPERATOR_FIL_25: 300
+INFO  :    RECORDS_OUT_OPERATOR_FIL_28: 52185
+INFO  :    RECORDS_OUT_OPERATOR_FS_39: 10
+INFO  :    RECORDS_OUT_OPERATOR_GBY_31: 29
+INFO  :    RECORDS_OUT_OPERATOR_GBY_33: 29
+INFO  :    RECORDS_OUT_OPERATOR_LIM_38: 10
+INFO  :    RECORDS_OUT_OPERATOR_MAPJOIN_30: 52185
+INFO  :    RECORDS_OUT_OPERATOR_MAP_0: 0
+INFO  :    RECORDS_OUT_OPERATOR_RS_27: 300
+INFO  :    RECORDS_OUT_OPERATOR_RS_32: 29
+INFO  :    RECORDS_OUT_OPERATOR_RS_36: 20
+INFO  :    RECORDS_OUT_OPERATOR_SEL_26: 300
+INFO  :    RECORDS_OUT_OPERATOR_SEL_29: 52185
+INFO  :    RECORDS_OUT_OPERATOR_SEL_35: 20
+INFO  :    RECORDS_OUT_OPERATOR_SEL_37: 11
+INFO  :    RECORDS_OUT_OPERATOR_TNK_34: 20
+INFO  :    RECORDS_OUT_OPERATOR_TS_0: 54516
+INFO  :    RECORDS_OUT_OPERATOR_TS_3: 300
+INFO  : Shuffle Errors:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : org.apache.hadoop.hive.ql.exec.tez.HiveInputCounters:
+INFO  :    GROUPED_INPUT_SPLITS_Map_1: 1
+INFO  :    GROUPED_INPUT_SPLITS_Map_4: 1
+INFO  :    INPUT_DIRECTORIES_Map_1: 7
+INFO  :    INPUT_DIRECTORIES_Map_4: 1
+INFO  :    INPUT_FILES_Map_1: 7
+INFO  :    INPUT_FILES_Map_4: 1
+INFO  :    RAW_INPUT_SPLITS_Map_1: 7
+INFO  :    RAW_INPUT_SPLITS_Map_4: 1
+INFO  : Compiling command(queryId=hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca): SELECT grid_id,        confidence,        COUNT(*) AS jumlah_hotspot,        ROUND(SUM(frp), 2) AS total_frp_mw,        ROUND(MAX(frp), 2) AS max_frp_mw FROM hotspot_1x_part WHERE acq_date = '2026-09-19' AND frp >= 10.0 GROUP BY grid_id, confidence ORDER BY total_frp_mw DESC LIMIT 10
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:grid_id, type:string, comment:null), FieldSchema(name:confidence, type:string, comment:null), FieldSchema(name:jumlah_hotspot, type:bigint, comment:null), FieldSchema(name:total_frp_mw, type:double, comment:null), FieldSchema(name:max_frp_mw, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca); Time taken: 0.315 seconds
+INFO  : Executing command(queryId=hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca): SELECT grid_id,        confidence,        COUNT(*) AS jumlah_hotspot,        ROUND(SUM(frp), 2) AS total_frp_mw,        ROUND(MAX(frp), 2) AS max_frp_mw FROM hotspot_1x_part WHERE acq_date = '2026-09-19' AND frp >= 10.0 GROUP BY grid_id, confidence ORDER BY total_frp_mw DESC LIMIT 10
+INFO  : Query ID = hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Subscribed to counters: [] for queryId: hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca
+INFO  : Session is already open
+INFO  : Dag name: SELECT grid_id,      ......_mw DESC LIMIT 10 (Stage-1)
+INFO  : HS2 Host: [18222dca8956], Query ID: [hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca], Dag ID: [dag_1793617262427_0001_3], DAG App ID: [application_1793617262427_0001], DAG App address: [18222dca8956]
+INFO  : Status: Running (Executing on YARN cluster with App id application_1793617262427_0001)
+
+[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 1            container       RUNNING      1          0        1        0       0       0  
+Reducer 2        container        INITED      1          0        0        1       0       0  
+Reducer 3        container        INITED      1          0        0        1       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 00/03  [>>--------------------------] 0%    ELAPSED TIME: 1.45 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+[9A[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2        container        INITED      1          0        0        1       0       0  
+Reducer 3        container        INITED      1          0        0        1       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 01/03  [========>>------------------] 33%   ELAPSED TIME: 1.95 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+[9A[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2        container        INITED      1          0        0        1       0       0  
+Reducer 3        container        INITED      1          0        0        1       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 01/03  [========>>------------------] 33%   ELAPSED TIME: 3.02 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+[9A[2K----------------------------------------------------------------------------------------------
+[2K[36;1m        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+[22;0m[2K----------------------------------------------------------------------------------------------
+[2KMap 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 3 ...... container     SUCCEEDED      1          1        0        0       0       0  
+[2K----------------------------------------------------------------------------------------------
+[2K[31;1mVERTICES: 03/03  [==========================>>] 100%  ELAPSED TIME: 3.39 s     
+[22;0m[2K----------------------------------------------------------------------------------------------
+INFO  : Status: DAG finished successfully in 3.38 seconds
+INFO  : DAG ID: dag_1793617262427_0001_3
+INFO  : 
+INFO  : Query Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : OPERATION                            DURATION
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : Compile Query                           0.32s
+INFO  : Prepare Plan                            0.03s
+INFO  : Get Query Coordinator (AM)              0.00s
+INFO  : Submit Plan                             0.01s
+INFO  : Start DAG                               0.02s
+INFO  : Run DAG                                 3.38s
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : Task Execution Summary
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      DURATION(ms)   CPU_TIME(ms)    GC_TIME(ms)   INPUT_RECORDS   OUTPUT_RECORDS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1           1330.00              0              0          10,974              222
+INFO  :  Reducer 2            354.00              0              0             222               54
+INFO  :  Reducer 3              0.00              0              0              54                0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : FileSystem Counters Summary
+INFO  : 
+INFO  : Scheme: FILE
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :   VERTICES      BYTES_READ      READ_OPS     LARGE_READ_OPS      BYTES_WRITTEN     WRITE_OPS
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  :      Map 1              0B             0                  0                 0B             0
+INFO  :  Reducer 2              0B             0                  0                 0B             0
+INFO  :  Reducer 3              0B             0                  0                 0B             0
+INFO  : ----------------------------------------------------------------------------------------------
+INFO  : 
+INFO  : org.apache.tez.common.counters.DAGCounter:
+INFO  :    NUM_SUCCEEDED_TASKS: 3
+INFO  :    TOTAL_LAUNCHED_TASKS: 3
+INFO  :    DURATION_SUCCEEDED_TASKS_MILLIS: 2200
+INFO  :    OTHER_LOCAL_TASKS: 1
+INFO  :    AM_CPU_MILLISECONDS: 4780
+INFO  :    WALL_CLOCK_MILLIS: 2200
+INFO  :    AM_GC_TIME_MILLIS: 0
+INFO  :    INITIAL_HELD_CONTAINERS: 0
+INFO  :    TOTAL_CONTAINERS_USED: 3
+INFO  :    TOTAL_CONTAINER_LAUNCH_COUNT: 3
+INFO  :    TOTAL_CONTAINER_RELEASE_COUNT: 3
+INFO  :    NODE_USED_COUNT: 1
+INFO  :    NODE_TOTAL_COUNT: 1
+INFO  : org.apache.tez.common.counters.TaskCounter:
+INFO  :    REDUCE_INPUT_GROUPS: 276
+INFO  :    REDUCE_INPUT_RECORDS: 276
+INFO  :    COMBINE_INPUT_RECORDS: 0
+INFO  :    SPILLED_RECORDS: 552
+INFO  :    NUM_SHUFFLED_INPUTS: 2
+INFO  :    NUM_SKIPPED_INPUTS: 0
+INFO  :    NUM_FAILED_SHUFFLE_INPUTS: 0
+INFO  :    MERGED_MAP_OUTPUTS: 2
+INFO  :    INPUT_RECORDS_PROCESSED: 11
+INFO  :    INPUT_SPLIT_LENGTH_BYTES: 340656
+INFO  :    OUTPUT_RECORDS: 276
+INFO  :    OUTPUT_LARGE_RECORDS: 0
+INFO  :    OUTPUT_BYTES: 9771
+INFO  :    OUTPUT_BYTES_WITH_OVERHEAD: 10335
+INFO  :    OUTPUT_BYTES_PHYSICAL: 10343
+INFO  :    ADDITIONAL_SPILLS_BYTES_WRITTEN: 0
+INFO  :    ADDITIONAL_SPILLS_BYTES_READ: 10343
+INFO  :    ADDITIONAL_SPILL_COUNT: 0
+INFO  :    SHUFFLE_CHUNK_COUNT: 2
+INFO  :    SHUFFLE_BYTES: 10343
+INFO  :    SHUFFLE_BYTES_DECOMPRESSED: 10335
+INFO  :    SHUFFLE_BYTES_TO_MEM: 0
+INFO  :    SHUFFLE_BYTES_TO_DISK: 0
+INFO  :    SHUFFLE_BYTES_DISK_DIRECT: 10343
+INFO  :    NUM_MEM_TO_DISK_MERGES: 0
+INFO  :    NUM_DISK_TO_DISK_MERGES: 0
+INFO  :    SHUFFLE_PHASE_TIME: 20
+INFO  :    MERGE_PHASE_TIME: 21
+INFO  :    FIRST_EVENT_RECEIVED: 16
+INFO  :    LAST_EVENT_RECEIVED: 16
+INFO  : HIVE:
+INFO  :    CREATED_FILES: 1
+INFO  :    DESERIALIZE_ERRORS: 0
+INFO  :    RECORDS_IN_Map_1: 10974
+INFO  :    RECORDS_OUT_0: 10
+INFO  :    RECORDS_OUT_INTERMEDIATE_Map_1: 222
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_2: 54
+INFO  :    RECORDS_OUT_INTERMEDIATE_Reducer_3: 0
+INFO  :    RECORDS_OUT_OPERATOR_FIL_13: 2271
+INFO  :    RECORDS_OUT_OPERATOR_FS_22: 10
+INFO  :    RECORDS_OUT_OPERATOR_GBY_14: 222
+INFO  :    RECORDS_OUT_OPERATOR_GBY_16: 222
+INFO  :    RECORDS_OUT_OPERATOR_LIM_21: 10
+INFO  :    RECORDS_OUT_OPERATOR_MAP_0: 0
+INFO  :    RECORDS_OUT_OPERATOR_RS_15: 222
+INFO  :    RECORDS_OUT_OPERATOR_RS_19: 54
+INFO  :    RECORDS_OUT_OPERATOR_SEL_18: 54
+INFO  :    RECORDS_OUT_OPERATOR_SEL_20: 11
+INFO  :    RECORDS_OUT_OPERATOR_TNK_17: 54
+INFO  :    RECORDS_OUT_OPERATOR_TS_0: 10974
+INFO  : Shuffle Errors:
+INFO  :    BAD_ID: 0
+INFO  :    CONNECTION: 0
+INFO  :    IO_ERROR: 0
+INFO  :    WRONG_LENGTH: 0
+INFO  :    WRONG_MAP: 0
+INFO  :    WRONG_REDUCE: 0
+INFO  : org.apache.hadoop.hive.ql.exec.tez.HiveInputCounters:
+INFO  :    GROUPED_INPUT_SPLITS_Map_1: 1
+INFO  :    INPUT_DIRECTORIES_Map_1: 1
+INFO  :    INPUT_FILES_Map_1: 1
+INFO  :    RAW_INPUT_SPLITS_Map_1: 1
+INFO  : Completed executing command(queryId=hive_20261102110106_d7ccb1fb-e111-4d5c-8bfb-b7e70e9507ca); Time taken: 3.457 seconds
++----------+-------------+-----------------+---------------+-------------+
+| grid_id  | confidence  | jumlah_hotspot  | total_frp_mw  | max_frp_mw  |
++----------+-------------+-----------------+---------------+-------------+
+| g087112  | high        | 48              | 6585.45       | 346.96      |
+| g087113  | high        | 36              | 5680.29       | 355.96      |
+| g086111  | nominal     | 185             | 5347.53       | 173.17      |
+| g086113  | nominal     | 149             | 4851.59       | 399.85      |
+| g087112  | nominal     | 207             | 4720.58       | 150.98      |
+| g087114  | high        | 32              | 3993.57       | 319.3       |
+| g086113  | high        | 38              | 3225.25       | 323.73      |
+| g087114  | nominal     | 124             | 2527.41       | 74.83       |
+| g088114  | high        | 11              | 2481.84       | 301.21      |
+| g087111  | nominal     | 62              | 2402.24       | 252.42      |
++----------+-------------+-----------------+---------------+-------------+
+10 rows selected (3.789 seconds)
+Beeline version 4.2.1 by Apache Hive
+Closing: 0: jdbc:hive2://localhost:10000

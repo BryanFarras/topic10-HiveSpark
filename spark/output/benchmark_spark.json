@@ -1,0 +1,218 @@
+{
+  "1x|Teks (CSV)|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.8887,
+      0.3515,
+      0.3996
+    ],
+    "median": 0.3996
+  },
+  "1x|Teks (CSV)|Q2_Join": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q2_Join",
+    "runs": [
+      0.6101,
+      0.3819,
+      0.4218
+    ],
+    "median": 0.4218
+  },
+  "1x|Teks (CSV)|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_1x_text",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.3255,
+      0.2308,
+      0.2241
+    ],
+    "median": 0.2308
+  },
+  "1x|Parquet|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.3319,
+      0.2285,
+      0.2602
+    ],
+    "median": 0.2602
+  },
+  "1x|Parquet|Q2_Join": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q2_Join",
+    "runs": [
+      0.4047,
+      0.2979,
+      0.2431
+    ],
+    "median": 0.2979
+  },
+  "1x|Parquet|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Parquet",
+    "table": "hotspot_1x_parquet",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.2187,
+      0.1723,
+      0.1821
+    ],
+    "median": 0.1821
+  },
+  "1x|Parquet Partisi|Q1_Agregasi": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.2636,
+      0.2429,
+      0.2567
+    ],
+    "median": 0.2567
+  },
+  "1x|Parquet Partisi|Q2_Join": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q2_Join",
+    "runs": [
+      0.2772,
+      0.273,
+      0.2902
+    ],
+    "median": 0.2772
+  },
+  "1x|Parquet Partisi|Q3_Partisi": {
+    "scale": "1x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_1x_part",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.1684,
+      0.1419,
+      0.151
+    ],
+    "median": 0.151
+  },
+  "10x|Teks (CSV)|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.4582,
+      0.4508,
+      0.4185
+    ],
+    "median": 0.4508
+  },
+  "10x|Teks (CSV)|Q2_Join": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q2_Join",
+    "runs": [
+      0.4417,
+      0.3998,
+      0.4291
+    ],
+    "median": 0.4291
+  },
+  "10x|Teks (CSV)|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Teks (CSV)",
+    "table": "hotspot_10x_text",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.2887,
+      0.272,
+      0.2668
+    ],
+    "median": 0.272
+  },
+  "10x|Parquet|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.2704,
+      0.2683,
+      0.2451
+    ],
+    "median": 0.2683
+  },
+  "10x|Parquet|Q2_Join": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q2_Join",
+    "runs": [
+      1.0427,
+      0.3745,
+      0.4094
+    ],
+    "median": 0.4094
+  },
+  "10x|Parquet|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Parquet",
+    "table": "hotspot_10x_parquet",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.171,
+      0.1613,
+      0.1853
+    ],
+    "median": 0.171
+  },
+  "10x|Parquet Partisi|Q1_Agregasi": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q1_Agregasi",
+    "runs": [
+      0.2134,
+      0.2081,
+      0.1849
+    ],
+    "median": 0.2081
+  },
+  "10x|Parquet Partisi|Q2_Join": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q2_Join",
+    "runs": [
+      0.2609,
+      0.2666,
+      0.2524
+    ],
+    "median": 0.2609
+  },
+  "10x|Parquet Partisi|Q3_Partisi": {
+    "scale": "10x",
+    "format": "Parquet Partisi",
+    "table": "hotspot_10x_part",
+    "query": "Q3_Partisi",
+    "runs": [
+      0.156,
+      0.1364,
+      0.1573
+    ],
+    "median": 0.156
+  }
+}
